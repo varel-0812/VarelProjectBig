@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Elegant - Kuliner Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigasi -->
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="#" class="logo">Varel<span>Resto</span></a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Beranda</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#about" class="nav-link">Tentang</a></li>
+                    <li><a href="#reservation" class="nav-link">Reservasi</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <button class="btn-cart" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="btn-menu" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Pengalaman Kuliner <span>Tak Terlupakan</span></h1>
+                <p class="hero-description">Rasa autentik dengan sentuhan modern, disajikan dalam suasana elegan dan nyaman.</p>
+                <div class="hero-buttons">
+                    <a href="#reservation" class="btn btn-primary">Pesan Meja</a>
+                    <a href="#menu" class="btn btn-secondary">Lihat Menu</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Interior Restoran Elegant">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Menu <span>Spesial</span></h2>
+                <p class="section-subtitle">Pilihan hidangan terbaik kami, dibuat dengan bahan-bahan berkualitas tinggi.</p>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">Semua</button>
+                <button class="category-tab" data-category="appetizer">Hidangan Pembuka</button>
+                <button class="category-tab" data-category="main">Hidangan Utama</button>
+                <button class="category-tab" data-category="dessert">Pencuci Mulut</button>
+                <button class="category-tab" data-category="drink">Minuman</button>
+            </div>
+            
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items akan di-generate oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chef Restoran Elegant">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Tentang <span>Kami</span></h2>
+                    <p>Restoran Elegant didirikan pada tahun 2010 dengan misi menghadirkan pengalaman kuliner yang luar biasa bagi setiap tamu. Kami menggabungkan resep tradisional dengan teknik modern untuk menciptakan hidangan yang unik dan penuh cita rasa.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-seedling"></i>
+                            <h3>Bahan Organik</h3>
+                            <p>Kami hanya menggunakan bahan-bahan organik berkualitas terbaik.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h3>Chef Berpengalaman</h3>
+                            <p>Dibuat oleh chef profesional dengan pengalaman lebih dari 10 tahun.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#reservation" class="btn btn-primary">Reservasi Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section" id="reservation">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pesan <span>Meja</span></h2>
+                <p class="section-subtitle">Reservasi meja Anda sekarang untuk pengalaman makan yang tak terlupakan.</p>
+            </div>
+            
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Tanggal</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="time">Waktu</label>
+                        <input type="time" id="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Jumlah Tamu</label>
+                        <select id="guests" required>
+                            <option value="">Pilih jumlah tamu</option>
+                            <option value="1">1 Orang</option>
+                            <option value="2">2 Orang</option>
+                            <option value="3">3 Orang</option>
+                            <option value="4">4 Orang</option>
+                            <option value="5">5 Orang</option>
+                            <option value="6">6+ Orang</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Permintaan Khusus (opsional)</label>
+                    <textarea id="message" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Pesan Meja Sekarang</button>
+            </form>
+            
+            <div class="reservation-info">
+                <div class="info-box">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Jumat: 10:00 - 22:00</p>
+                    <p>Sabtu - Minggu: 09:00 - 23:00</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telepon</h3>
+                    <p>(021) 1234-5678</p>
+                    <p>WhatsApp: 0812-3456-7890</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Lokasi</h3>
+                    <p>Jl. Restoran Elegant No. 123</p>
+                    <p>Jakarta Selatan, Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Hubungi <span>Kami</span></h2>
+                    <p>Kami senang mendengar dari Anda. Hubungi kami untuk pertanyaan, masukan, atau reservasi.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jl. Restoran Elegant No. 123, Jakarta Selatan</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>(021) 1234-5678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@elegantresto.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subjek" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan Anda" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Keranjang Pesanan</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items akan di-generate oleh JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Rp 0</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn">Pesan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Elegant<span>Resto</span></h3>
+                    <p>Restoran premium dengan pengalaman kuliner tak terlupakan. Rasa autentik dengan sentuhan modern.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#reservation">Reservasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta Selatan, Indonesia</p>
+                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@elegantresto.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Berlangganan</h4>
+                    <p>Dapatkan info promo dan menu baru langsung di email Anda.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Email Anda" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Restoran Elegant. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
