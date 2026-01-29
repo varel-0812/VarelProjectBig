@@ -3,104 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Website - Demo</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Varel Fashion Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👕</text></svg>">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
             <div class="header-content">
-                <div>
-                    <h1><i class="fas fa-shopping-cart"></i> E-Commerce Demo</h1>
-                    <p class="subtitle">Website toko online dengan sistem pembayaran modern</p>
+                <div class="logo">
+                    <h1><i class="fas fa-crown"></i>VarelStore</h1>
+                    <p>Premium Fashion Store</p>
                 </div>
-                <a href="../../index.html" class="back-btn">
-                    <i class="fas fa-arrow-left"></i> Kembali ke Portfolio
-                </a>
-            </div>
-        </header>
-        
-        <main class="main-content">
-            <div class="demo-info">
-                <h2><i class="fas fa-store"></i> Website E-Commerce Lengkap</h2>
-                <p>Ini adalah demo website e-commerce dengan semua fitur modern untuk toko online.</p>
-            </div>
-            
-            <div class="product-section">
-                <h2><i class="fas fa-gift"></i> Produk Populer</h2>
-                <div class="product-grid" id="productGrid">
-                    <!-- Products will be loaded by JavaScript -->
-                </div>
-            </div>
-            
-            <div class="cart-section">
-                <h2><i class="fas fa-shopping-bag"></i> Keranjang Belanja</h2>
-                <div class="cart-container">
-                    <div class="cart-items" id="cartItems">
-                        <p class="empty-cart">Keranjang belanja kosong</p>
-                    </div>
-                    <div class="cart-summary">
-                        <h3>Ringkasan Belanja</h3>
-                        <div class="summary-item">
-                            <span>Subtotal</span>
-                            <span id="subtotal">Rp 0</span>
-                        </div>
-                        <div class="summary-item">
-                            <span>Pajak (10%)</span>
-                            <span id="tax">Rp 0</span>
-                        </div>
-                        <div class="summary-item total">
-                            <span>Total</span>
-                            <span id="total">Rp 0</span>
-                        </div>
-                        <button class="checkout-btn" id="checkoutBtn">
-                            <i class="fas fa-credit-card"></i> Checkout
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="features">
-                <h2><i class="fas fa-star"></i> Fitur Utama</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
+                
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active">Beranda</a></li>
+                        <li><a href="#products" class="nav-link">Produk</a></li>
+                        <li><a href="#categories" class="nav-link">Kategori</a></li>
+                        <li><a href="#about" class="nav-link">Tentang</a></li>
+                        <li><a href="#contact" class="nav-link">Kontak</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="cart-btn" id="cartBtn">
                         <i class="fas fa-shopping-cart"></i>
-                        <h3>Sistem Keranjang</h3>
-                        <p>Tambahkan produk ke keranjang dengan mudah</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-credit-card"></i>
-                        <h3>Pembayaran Aman</h3>
-                        <p>Multiple payment gateway terintegrasi</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-chart-bar"></i>
-                        <h3>Analytics Dashboard</h3>
-                        <p>Monitor penjualan dan performa toko</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Responsif</h3>
-                        <p>Optimal di semua perangkat</p>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Keranjang belanja kosong</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price" id="totalPrice">Rp 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Koleksi Fashion Premium</h2>
+                    <p>Dapatkan gaya terbaik dengan kualitas terjamin. Baju, celana, sepatu, topi dan aksesoris fashion lainnya.</p>
+                    <a href="#products" class="btn btn-primary">Jelajahi Koleksi</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-container">
+                        <div class="image-circle"></div>
+                        <div class="fashion-item">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="fashion-item">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <div class="fashion-item">
+                            <i class="fas fa-hat-cowboy"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-        
-        <footer>
-            <div class="tech-stack">
-                <h3><i class="fas fa-code"></i> Teknologi</h3>
-                <div class="tech-tags">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>PHP</span>
-                    <span>MySQL</span>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kategori Produk</h2>
+                <p>Temukan produk fashion sesuai kebutuhan Anda</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Baju</h3>
+                    <p>Kemeja, kaos, jaket, dan blouse</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-vest"></i>
+                    </div>
+                    <h3>Celana</h3>
+                    <p>Jeans, chino, jogger, dan celana pendek</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h3>Sepatu</h3>
+                    <p>Sneakers, formal, sport, dan sandal</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hat-cowboy"></i>
+                    </div>
+                    <h3>Topi & Aksesoris</h3>
+                    <p>Topi, tas, sabuk, dan perhiasan</p>
                 </div>
             </div>
-            <p class="footer-note">Website demo untuk portfolio. Website asli dapat dikembangkan sesuai kebutuhan.</p>
-        </footer>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produk Terbaru</h2>
+                <p>Koleksi fashion premium dengan kualitas terbaik</p>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="baju">Baju</button>
+                <button class="filter-btn" data-filter="celana">Celana</button>
+                <button class="filter-btn" data-filter="sepatu">Sepatu</button>
+                <button class="filter-btn" data-filter="topi">Topi & Aksesoris</button>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Tentang StyleHub</h2>
+                    <p>Kami adalah toko fashion online yang menyediakan berbagai macam pakaian, sepatu, dan aksesoris dengan kualitas premium dan harga terjangkau.</p>
+                    <p>Dengan pengalaman lebih dari 5 tahun di industri fashion, kami berkomitmen untuk memberikan produk terbaik dan pelayanan pelanggan yang memuaskan.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <div>
+                                <h4>Pengiriman Cepat</h4>
+                                <p>Pengiriman ke seluruh Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Kualitas Terjamin</h4>
+                                <p>Produk dengan bahan premium</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h4>Dukungan 24/7</h4>
+                                <p>Layanan pelanggan siap membantu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-container">
+                        <div class="image-square"></div>
+                        <div class="image-content">
+                            <i class="fas fa-store"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <p>Butuh bantuan atau ingin bertanya tentang produk? Hubungi kami!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>WhatsApp</h4>
+                            <p>+62 852 7782 5042</p>
+                            <button class="btn-whatsapp" id="whatsappBtn">
+                                <i class="fab fa-whatsapp"></i> Chat Sekarang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>Email</h4>
+                            <p>iyelbudiarto06@gmail.com<p>
+                            <button class="btn-email" id="emailBtn">
+                                <i class="fas fa-envelope"></i> Kirim Email
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>Alamat</h4>
+                            <p>Jl. Siliwangi, Pondok Benda, Pamulang, Tangerang Selatan</p>
+                            <button class="btn-map" id="mapBtn">
+                                <i class="fas fa-map-marked-alt"></i> Lihat di Maps
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Kirim Pesan</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nomor WhatsApp" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <h3><i class="fas fa-crown"></i> VarelStore</h3>
+                    </div>
+                    <p>Toko fashion online terpercaya dengan produk berkualitas dan pelayanan terbaik.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#products">Baju</a></li>
+                        <li><a href="#products">Celana</a></li>
+                        <li><a href="#products">Sepatu</a></li>
+                        <li><a href="#products">Topi & Aksesoris</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +62 851 7782 5042</li>
+                        <li><i class="fas fa-envelope"></i> iyelbudiarto06@gmail.com.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tangerang Selatan, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> RelWeb. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/qr/MVZ7FNK2XVOSK1" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Pesanan Berhasil!</h3>
+            <p id="modalMessage">Pesanan Anda telah dikirim ke WhatsApp kami. Kami akan segera menghubungi Anda.</p>
+            <button class="btn btn-primary" id="closeModal">Tutup</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

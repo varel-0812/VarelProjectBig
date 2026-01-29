@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer - Game JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-rocket"></i> SPACE EXPLORER</h1>
+            <div class="subtitle">Jelajahi galaksi, kumpulkan sumber daya, dan selesaikan misi!</div>
+        </header>
+
+        <div class="game-container">
+            <div class="left-panel">
+                <div class="player-info card">
+                    <h2><i class="fas fa-user-astronaut"></i> Informasi Pemain</h2>
+                    <div class="player-stats">
+                        <div class="stat">
+                            <span class="stat-label">Nama:</span>
+                            <span id="player-name">Kapten Astra</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Level:</span>
+                            <span id="player-level">1</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">XP:</span>
+                            <span id="player-xp">0</span>/<span id="player-xp-max">100</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Kredit:</span>
+                            <span id="player-credits">1000</span> <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Kapal:</span>
+                            <span id="player-ship">Falcon X-1</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="xp-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inventory card">
+                    <h2><i class="fas fa-box-open"></i> Inventaris</h2>
+                    <div class="inventory-items" id="inventory-items">
+                        <!-- Items akan dimuat via JavaScript -->
+                    </div>
+                    <div class="inventory-capacity">
+                        Kapasitas: <span id="inventory-used">0</span>/<span id="inventory-max">10</span>
+                    </div>
+                </div>
+
+                <div class="missions card">
+                    <h2><i class="fas fa-tasks"></i> Misi Aktif</h2>
+                    <div class="missions-list" id="missions-list">
+                        <!-- Misi akan dimuat via JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-panel">
+                <div class="universe-map card">
+                    <h2><i class="fas fa-globe-americas"></i> Peta Galaksi</h2>
+                    <div class="galaxy-container">
+                        <div class="starfield" id="starfield">
+                            <!-- Bintang dan planet akan ditambahkan via JavaScript -->
+                        </div>
+                        <div class="player-position">
+                            <i class="fas fa-space-shuttle"></i>
+                            <div class="position-text">Sektor: <span id="current-sector">Alpha-7</span></div>
+                        </div>
+                    </div>
+                    <div class="navigation-controls">
+                        <button class="btn nav-btn" id="move-up"><i class="fas fa-arrow-up"></i> Utara</button>
+                        <div class="horizontal-controls">
+                            <button class="btn nav-btn" id="move-left"><i class="fas fa-arrow-left"></i> Barat</button>
+                            <button class="btn nav-btn" id="scan-area"><i class="fas fa-search"></i> Pindai</button>
+                            <button class="btn nav-btn" id="move-right"><i class="fas fa-arrow-right"></i> Timur</button>
+                        </div>
+                        <button class="btn nav-btn" id="move-down"><i class="fas fa-arrow-down"></i> Selatan</button>
+                    </div>
+                </div>
+
+                <div class="planet-info card" id="planet-info">
+                    <h2><i class="fas fa-globe"></i> Informasi Planet</h2>
+                    <p class="no-planet">Terbanglah ke sebuah planet untuk menjelajahinya</p>
+                    <!-- Info planet akan dimuat via JavaScript -->
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="actions card">
+                    <h2><i class="fas fa-play-circle"></i> Aksi</h2>
+                    <div class="action-buttons">
+                        <button class="btn action-btn" id="explore-planet"><i class="fas fa-mountain"></i> Jelajahi Planet</button>
+                        <button class="btn action-btn" id="mine-resources"><i class="fas fa-gem"></i> Tambang Sumber Daya</button>
+                        <button class="btn action-btn" id="trade-resources"><i class="fas fa-exchange-alt"></i> Perdagangan</button>
+                        <button class="btn action-btn" id="upgrade-ship"><i class="fas fa-rocket"></i> Tingkatkan Kapal</button>
+                        <button class="btn action-btn" id="new-mission"><i class="fas fa-star"></i> Ambil Misi Baru</button>
+                        <button class="btn action-btn" id="save-game"><i class="fas fa-save"></i> Simpan Game</button>
+                    </div>
+                </div>
+
+                <div class="game-log card">
+                    <h2><i class="fas fa-scroll"></i> Log Game</h2>
+                    <div class="log-entries" id="game-log">
+                        <div class="log-entry">Selamat datang di Space Explorer! Pindai area untuk menemukan planet.</div>
+                    </div>
+                </div>
+
+                <div class="achievements card">
+                    <h2><i class="fas fa-trophy"></i> Pencapaian</h2>
+                    <div class="achievements-list" id="achievements-list">
+                        <!-- Pencapaian akan dimuat via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Space Explorer &copy; 2023 | Dibuat dengan <i class="fas fa-heart"></i> menggunakan JavaScript</p>
+            <div class="game-controls">
+                <button class="btn" id="toggle-sound"><i class="fas fa-volume-up"></i> Suara</button>
+                <button class="btn" id="help-btn"><i class="fas fa-question-circle"></i> Bantuan</button>
+                <button class="btn" id="reset-btn"><i class="fas fa-redo"></i> Reset Game</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal untuk bantuan -->
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-question-circle"></i> Cara Bermain</h2>
+            <div class="modal-body">
+                <p><strong>Space Explorer</strong> adalah game eksplorasi luar angkasa. Tujuan Anda adalah:</p>
+                <ul>
+                    <li>Jelajahi galaksi dengan menggerakkan kapal Anda menggunakan tombol navigasi</li>
+                    <li>Pindai area untuk menemukan planet baru</li>
+                    <li>Jelajahi planet untuk menemukan sumber daya dan barang langka</li>
+                    <li>Selesaikan misi untuk mendapatkan pengalaman dan kredit</li>
+                    <li>Tingkatkan kapal Anda untuk menjelajahi lebih jauh</li>
+                    <li>Kumpulkan pencapaian dengan menyelesaikan tugas-tugas spesial</li>
+                </ul>
+                <p>Gunakan kredit untuk membeli upgrade dan item. Kumpulkan XP untuk naik level dan membuka area baru!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js" type="module"></script>
+    <script src="player.js" type="module"></script>
+</body>
+</html>
