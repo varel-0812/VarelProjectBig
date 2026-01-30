@@ -144,10 +144,10 @@ function initializeProjects() {
             description: "Website toko online dengan sistem pembayaran dan dashboard admin.",
             category: "web",
             tech: ["HTML", "CSS", "JavaScript", "PHP"],
-            image: "/porto-project/images/fashion.png", // Gambar thumbnail di folder images
-            demoUrl: "/porto-project/projects/ecommerce-web/index.html", // Path ke website di folder projects
+            image: "../porto-project/images/fashion.png", // Gambar thumbnail di folder images
+            demoUrl: "../porto-project/projects/ecommerce-web/index.html", // Path ke website di folder projects
             links: {
-                demo: "/porto-project/projects/ecommerce-web/index.html", // Sama seperti demoUrl
+                demo: "../porto-project/projects/ecommerce-web/index.html", // Sama seperti demoUrl
                 github: "https://github.com/username/ecommerce"
             }
         },
@@ -157,10 +157,10 @@ function initializeProjects() {
             description: "Aplikasi manajemen tugas dengan fitur drag & drop dan local storage.",
             category: "app",
             tech: ["JavaScript", "LocalStorage", "CSS Grid"],
-            image: "/porto-project/images/todo.png",
-            demoUrl: "/porto-project/projects/todo-app/index.html",
+            image: "../porto-project/images/todo.png",
+            demoUrl: "../porto-project/projects/todo-app/index.html",
             links: {
-                demo: "/porto-project/projects/todo-app/index.html",
+                demo: "../porto-project/projects/todo-app/index.html",
                 github: "https://github.com/username/todo-app"
             }
         },
@@ -170,10 +170,10 @@ function initializeProjects() {
             description: "Desain website portfolio dengan animasi dan efek parallax.",
             category: "design",
             tech: ["Figma", "Photoshop", "CSS Animation"],
-            image: "/porto-project/images/portodes.png",
-            demoUrl: "/porto-project/projects/portofolio-design/index.html",
+            image: "../porto-project/images/portodes.png",
+            demoUrl: "../porto-project/projects/portofolio-design/index.html",
             links: {
-                demo: "/porto-projectprojects/portfolio-design/index.html",
+                demo: "../porto-projectprojects/portfolio-design/index.html",
                 behance: "#"
             }
         },
@@ -183,10 +183,10 @@ function initializeProjects() {
             description: "Dashboard cuaca dengan API integration dan chart visualisasi.",
             category: "web",
             tech: ["API", "Chart.js", "JavaScript"],
-            image: "/porto-project/images/weatherrel.png",
-            demoUrl: "/porto-project/projects/weather-dashboard/index.html",
+            image: "../porto-project/images/weatherrel.png",
+            demoUrl: "../porto-project/projects/weather-dashboard/index.html",
             links: {
-                demo: "/porto-project/projects/weather-dashboard/index.html",
+                demo: "../porto-project/projects/weather-dashboard/index.html",
                 github: "https://github.com/username/weather-app"
             }
         },
@@ -196,10 +196,10 @@ function initializeProjects() {
             description: "Website restoran dengan menu online dan sistem reservasi.",
             category: "web",
             tech: ["HTML5", "CSS3", "JavaScript", "Form Validation"],
-            image: "/porto-project/images/restaurant.png",
-            demoUrl: "/porto-project/projects/restaurant-website/index.html",
+            image: "../porto-project/images/restaurant.png",
+            demoUrl: "../porto-project/projects/restaurant-website/index.html",
             links: {
-                demo: "/porto-project/projects/restaurant-website/index.html",
+                demo: "../porto-project/projects/restaurant-website/index.html",
                 github: "https://github.com/username/restaurant"
             }
         },
@@ -209,10 +209,10 @@ function initializeProjects() {
             description: "Game sederhana berbasis JavaScript dengan canvas dan animasi.",
             category: "app",
             tech: ["Canvas API", "JavaScript", "Game Physics"],
-            image: "/porto-project/images/game.png",
-            demoUrl: "projects/javascript-game/index.html",
+            image: "../porto-project/images/game.png",
+            demoUrl: "../projects/javascript-game/index.html",
             links: {
-                demo: "projects/javascript-game/index.html",
+                demo: "../projects/javascript-game/index.html",
                 github: "https://github.com/username/javascript-game"
             }
         }
