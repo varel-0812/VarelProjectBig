@@ -159,6 +159,6 @@ nextPage.addEventListener("click", function (e) {
   document.body.classList.add("page-fade");
 
   setTimeout(() => {
-    window.location.href = this.href;
+    window.location.href = "../porto-project/index.html";
   }, 700);
 });
