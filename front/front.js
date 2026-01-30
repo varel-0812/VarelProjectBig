@@ -1,3 +1,6 @@
+/* ===== DEVICE CHECK ===== */
+const isMobile = window.innerWidth <= 768;
+
 /* ===== PARTICLE BACKGROUND ===== */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
@@ -38,7 +41,8 @@ class Particle {
 
 function initParticles() {
   particles = [];
-  for (let i = 0; i < 120; i++) {
+  const total = isMobile ? 40 : 120; // 👈 hanya ini beda
+  for (let i = 0; i < total; i++) {
     particles.push(new Particle());
   }
 }
@@ -55,29 +59,29 @@ function animateParticles() {
 initParticles();
 animateParticles();
 
-/* ===== PARALLAX ===== */
+/* ===== PARALLAX (DESKTOP ONLY) ===== */
 const card = document.querySelector(".hero-card");
-
-document.addEventListener("mousemove", e => {
-  const x = (window.innerWidth / 2 - e.clientX) / 30;
-  const y = (window.innerHeight / 2 - e.clientY) / 30;
-
-  card.style.transform = 
-    rotateY(`${x}deg`)
-    rotateX(`${y}deg`)
-  ;
-});
-
 const hud = document.querySelector(".hud-core");
 
-document.addEventListener("mousemove", e => {
-  const x = (window.innerWidth / 2 - e.clientX) / 50;
-  const y = (window.innerHeight / 2 - e.clientY) / 50;
+if (!isMobile) {
+  document.addEventListener("mousemove", e => {
+    const x = (window.innerWidth / 2 - e.clientX) / 30;
+    const y = (window.innerHeight / 2 - e.clientY) / 30;
 
-  hud.style.transform = 
-    translate(`${x}px, ${y}px`)
-  ;
-});
+    card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+
+  document.addEventListener("mousemove", e => {
+    const x = (window.innerWidth / 2 - e.clientX) / 50;
+    const y = (window.innerHeight / 2 - e.clientY) / 50;
+
+    hud.style.transform = `translate(${x}px, ${y}px)`;
+  });
+} else {
+  // 📱 Mobile tetap rapi
+  card.style.transform = "none";
+  hud.style.transform = "none";
+}
 
 /* ===== SYSTEM BOOT ===== */
 const boot = document.getElementById("boot-screen");
@@ -123,34 +127,35 @@ const titleEl = document.getElementById("type-title");
 let i = 0;
 function typeEffect() {
   if (i < titleText.length) {
-    titleEl.innerHTML +=
-      titleText[i] === "\n" ? "<br>" : titleText[i];
+    titleEl.innerHTML += titleText[i] === "\n" ? "<br>" : titleText[i];
     i++;
     setTimeout(typeEffect, 55);
   }
 }
-setTimeout(typeEffect, 1200); // delay setelah boot
+setTimeout(typeEffect, 1200);
 
+/* ===== TITLE PARALLAX (DESKTOP ONLY) ===== */
 const heroLeft = document.querySelector(".hero-left");
-const title = document.querySelector("#type-title");
 
-heroLeft.addEventListener("mousemove", e => {
-  const rect = heroLeft.getBoundingClientRect();
-  const x = (e.clientX - rect.left - rect.width / 2) / 25;
-  const y = (e.clientY - rect.top - rect.height / 2) / 25;
+if (!isMobile) {
+  heroLeft.addEventListener("mousemove", e => {
+    const rect = heroLeft.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / 25;
+    const y = (e.clientY - rect.top - rect.height / 2) / 25;
 
-  title.style.transform = translate(`${x}px, ${y}px`);
-});
+    titleEl.style.transform = `translate(${x}px, ${y}px)`;
+  });
 
-heroLeft.addEventListener("mouseleave", () => {
-  title.style.transform = "translate(0,0)";
-});
+  heroLeft.addEventListener("mouseleave", () => {
+    titleEl.style.transform = "translate(0,0)";
+  });
+}
 
+/* ===== PAGE TRANSITION ===== */
 const nextPage = document.getElementById("nextPage");
 
 nextPage.addEventListener("click", function (e) {
   e.preventDefault();
-
   document.body.classList.add("page-fade");
 
   setTimeout(() => {

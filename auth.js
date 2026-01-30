@@ -67,3 +67,18 @@ loginForm.addEventListener('submit', function (e) {
         alert('Username atau password salah!');
     }
 });
+
+/* ================= TOGGLE PASSWORD ================= */
+document.querySelectorAll('.toggle-password').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const input = icon.parentElement.querySelector('.password-input');
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+    });
+});

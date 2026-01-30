@@ -587,3 +587,17 @@
             font-size: 13px;
         }
     }
+
+    .toggle-password {
+        right: 25px;
+        cursor: pointer;
+    }
+
+    .field-wrapper .fa-lock {
+    right: 0;
+}
+
+.field-wrapper .toggle-password {
+    right: 30px;
+    cursor: pointer;
+}
